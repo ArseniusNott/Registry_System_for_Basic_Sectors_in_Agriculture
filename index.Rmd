@@ -1,0 +1,41 @@
+---
+title: "Registry System for Basic Sectors in Agriculture"
+author: "Alexander N. Villasoto"
+date: "7 December 2018"
+output:
+  ioslides_presentation: default
+  slidy_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Absolute directory. 
+# Uncomment if you are trying to explore this documentation on your own.
+setwd("~/Projects/Courses/Coursera/Developing Data Products/Project_3/Registry_System_for_Basic_Sectors_in_Agriculture/")
+```
+
+## Introduction
+
+- The [Department of Budget and Management](https://dbm.gov.ph/) formulates and implements the National budget to support national socio-economic plans and objectives.
+- As a supporter of [Open Data Initiative in the Philippines](https://data.gov.ph/about), DBM opened several [datasets](https://data.gov.ph/agencies/department-budget-and-management) including Registry System for Basic Sectors in Agriculture that summarizes the number of farm laborers by province, sex, kind of work.
+- The dataset is recently modified on November 28, 2018 collected from the year 2013. You can find more information [here](https://data.gov.ph/dataset/registry-system-basic-sectors-agriculture/).
+
+## Goals
+
+- The goal of this project is to create an interactive visualization that shows the number of registered farm laborers in select 20 provinces in the Philippines conditioned on sex, nature of their work and whether they are registered as farmer only or farmer/fisherman. 
+- The project is created using a combination of Shiny, Plotly and Leaflet. Codebase and documentation can be found [here](https://github.com/ArseniusNott/Registry_System_for_Basic_Sectors_in_Agriculture).
+- The author modified the dataset by adding latitude and longitude values per province as needed by the Leaflet plotting. Modification can be found [here](https://github.com/ArseniusNott/Registry_System_for_Basic_Sectors_in_Agriculture/blob/master/raw_code.R).
+
+## Analytic Data Structure
+
+```{r echo=TRUE, comment=""}
+data <- read.csv("./farm_laborers.csv")
+str(data)
+```
+
+***
+
+```{r knitr_plot, echo = FALSE, fig.width=11, fig.height=9, fig.align='center'}
+knitr::include_app("https://arsenius.shinyapps.io/Registry_System_for_Basic_Sectors_in_Agriculture/")
+```
